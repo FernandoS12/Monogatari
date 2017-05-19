@@ -560,13 +560,19 @@ $_ready(function() {
 			try {
 				if (back.indexOf($_(this).data("do").split(" ")[0]) > -1) {
 					engine["Step"] -= 1;
+					$_("[data-ui='choices']").hide();
+					$_("[data-ui='choices']").html("");
 					analyseStatement($_(this).data("do"));
 					engine["Step"] += 1;
 				} else {
 					if ($_(this).data("do").split(" ")[0] == "jump") {
+						$_("[data-ui='choices']").hide();
+						$_("[data-ui='choices']").html("");
 						analyseStatement($_(this).data("do"));
 						engine["Step"] += 1;
 					} else {
+						$_("[data-ui='choices']").hide();
+						$_("[data-ui='choices']").html("");
 						analyseStatement($_(this).data("do"));
 					}
 				}
@@ -575,8 +581,6 @@ $_ready(function() {
 				console.log("An error ocurred while trying to execute the choice's action.\n" + e);
 			}
 		}
-		$_("[data-ui='choices']").hide();
-		$_("[data-ui='choices']").html("");
 	});
 
 	$_("#game [data-ui='quick-menu'] *").click(function(e) {
